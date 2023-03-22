@@ -29,7 +29,7 @@ class Comment(models.Model):
     blog = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
     Author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     content = models.TextField()
-    created_on = models.DateField(auto_now=False, auto_now_had=True)
+    created_on = models.DateField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
         return self.Author
