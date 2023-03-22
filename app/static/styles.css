@@ -1,1 +1,35 @@
-
+.sidebar {
+  width: 25%;
+  border-right: 1px solid grey;
+  padding-top: 50px;
+}
+/* ALL BUTTONS/LINKS */
+.all-links {
+  text-decoration: none;
+  text-align: right;
+}
+/* BLOG POST */
+.blog-post-container {
+  width: 65%;
+  margin: auto;
+  padding: 30px;
+  margin-block: 20px;
+}
+#blog-thumbnail {
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 50px;
+  background: grey;
+}
+.blog-content {
+  margin-left: 5px;
+  padding: 5px;
+  border: 1px solid grey;
+  text-align: left;
+  width: 90%;
+}
+.blog-content h3 {
+  font-size: xx-large;
+}

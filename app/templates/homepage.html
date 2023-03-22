@@ -1,10 +1,13 @@
-{% extends base.html %}
+{% extends 'base.html' %}
 {% block content %}
-<a href="">
-    <div>
-        <h3>Header</h3>
-        <p>content</p>
-        <a href="">read more</a>
+<div class="w3-card blog-post-container">
+    <div style="display: flex; justify-content: left;">
+        <div id="blog-thumbnail"></div>
+        <div class="blog-content">
+            <h3>Title</h3>
+            <p>Content</p>
+        </div>
     </div>
-</a>
+    <a class="" href="">read more</a>
+</div>
 {% endblock content%}

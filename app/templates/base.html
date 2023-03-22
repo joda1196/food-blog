@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +12,7 @@
     <title>Food Simps Blog-R-Us</title>
   </head>
   <body>
-    <nav class="w3-sidebar w3-bar-block" style="width: 25%; border-right: 1px solid grey; padding-top: 50px;">
+    <nav class="sidebar w3-sidebar w3-bar-block">
       <a href="#" class="w3-bar-item w3-button" style="text-decoration: none;">Home</a>
       <a href="#" class="w3-bar-item w3-button">Create Blog</a>
       <a href="#" class="w3-bar-item w3-button">Login</a>
@@ -24,7 +25,7 @@
         <!-- end if -->
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
           <!-- prettier-ignore -->
-          <a href="{%url 'my-posts' %}" class="w3-bar-item w3-button">My Posts</a >
+          <a href="" class="w3-bar-item w3-button">My Posts</a >
           <a href="#" class="w3-bar-item w3-button">Logout</a>
         </div>
       </div>
