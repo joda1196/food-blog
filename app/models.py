@@ -2,6 +2,7 @@ from django.db import models
 from datetime import date
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -25,6 +26,7 @@ class BlogPost(models.Model):
 
 
 class Comment(models.Model):
+    blog = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
     Author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     content = models.TextField()
     created_on = models.DateField(auto_now=False, auto_now_had=True)
