@@ -11,7 +11,7 @@ class Profile(models.Model):
     bio = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.user
 
 
 class BlogPost(models.Model):
@@ -22,7 +22,7 @@ class BlogPost(models.Model):
     updated_at = models.DateField(auto_now=True, auto_now_add=False)
 
     def __str__(self):
-        return self.post_author
+        return self.post_author + ' | ' + self.Title
 
 
 class Comment(models.Model):
@@ -32,4 +32,4 @@ class Comment(models.Model):
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return self.comment_author
+        return self.comment_author.user + ': '  + self.created_on
