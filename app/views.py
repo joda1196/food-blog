@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from app.forms import *
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def test(request):
@@ -10,6 +11,30 @@ def test(request):
 
 def homepage(request):
     return render(request, "homepage.html")
+
+
+def login_view(request):
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                if user.is_staff:
+                    return redirect("superuser")
+                else:
+                    return redirect("user")
+
+    else:
+        form = LoginForm()
+    return render(request, "login.html", {"form": form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("login")
 
 
 @login_required
