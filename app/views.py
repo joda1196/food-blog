@@ -47,7 +47,7 @@ def blogpost_detail(request, post_id):
             comment.blog = post
             comment.comment_author = request.user.profile
             comment.save()
-            return redirect("blogpost_detail", post_id=post_id)
+            return redirect("blog/blogpost_detail", post_id=post_id)
     else:
         form = CommentForm()
     comments = Comment.objects.filter(blog=post)
@@ -65,4 +65,10 @@ def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id)
     if request.user == comment.comment_author.user:
         comment.delete()
-    return redirect("blogpost_detail", post_id=comment.blog.id)
+    return redirect("blog/blogpost_detail", post_id=comment.blog.id)
+
+
+@login_required
+def view_post(request):
+    foods = BlogPost.objects.all()
+    return render(request, "blog/blog_view.html", {"foods": foods})
