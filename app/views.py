@@ -25,7 +25,7 @@ def login_view(request):
                 if user.is_staff:
                     return redirect("superuser")
                 else:
-                    return redirect("user")
+                    return redirect("homepage")
 
     else:
         form = LoginForm()
@@ -72,3 +72,14 @@ def delete_comment(request, comment_id):
 def view_post(request):
     foods = BlogPost.objects.all()
     return render(request, "blog/blogcomment.html", {"foods": foods})
+
+
+def register_view(request):
+    form = CustomUserCreatingForm()
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")
+    context = {"form": form}
+    return render(request, "register.html", context)
