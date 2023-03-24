@@ -1,7 +1,9 @@
 .sidebar {
-  width: 25%;
   border-right: 1px solid grey;
-  padding-top: 50px;
+}
+.category-bar {
+  border-left: 1px solid grey;
+  text-align: right;
 }
 /* ALL BUTTONS/LINKS */
 .all-links {

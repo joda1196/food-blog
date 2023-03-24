@@ -22,13 +22,19 @@
         <button class="w3-button w3-text-light-blue w3-padding-16">
           {{request.user}}
         </button>
-        <!-- end if -->
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
           <!-- prettier-ignore -->
-          <a href="" class="w3-bar-item w3-button">My Posts</a >
+          <a href="" class="w3-bar-item w3-button">My Profile</a >
           <a href="#" class="w3-bar-item w3-button">Logout</a>
+        <!-- end if -->
         </div>
       </div>
+    </nav>
+    <nav class="category-bar w3-bar-block w3-right">
+      <a href="" class="w3-bar-item all-links">Breakfast</a>
+      <a href="" class="w3-bar-item all-links">Lunch</a>
+      <a href="" class="w3-bar-item all-links">Breakfast</a>
+      <a href="" class="w3-bar-item all-links">Breakfast</a>
     </nav>
     {% block content %}
     {% endblock content%}
