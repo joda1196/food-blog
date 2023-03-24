@@ -26,18 +26,25 @@
           <!-- prettier-ignore -->
           <a href="" class="w3-bar-item w3-button">My Profile</a >
           <a href="#" class="w3-bar-item w3-button">Logout</a>
-        <!-- end if -->
+          <!-- end if -->
         </div>
       </div>
     </nav>
-    <nav class="sidebar w3-sidebar w3-bar-block" style="right:0; background-color: #f8fffe;">
+    <div class="logo">
+      Food Simps <br />
+      Blog <br />
+      Forum
+    </div>
+    <nav
+      class="sidebar w3-sidebar w3-bar-block"
+      style="right: 0; background-color: #f8fffe"
+    >
       <h2>Categories</h2>
       <a href="" class="w3-bar-item all-links">Entree</a>
       <a href="" class="w3-bar-item all-links">Appetizer</a>
       <a href="" class="w3-bar-item all-links">Dessert</a>
       <a href="" class="w3-bar-item all-links">Cocktail</a>
     </nav>
-    {% block content %}
-    {% endblock content%}
+    {% block content %} {% endblock content%}
   </body>
 </html>

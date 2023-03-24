@@ -88,3 +88,22 @@
 .blog-read-more:hover::before {
   transform: scaleX(1);
 }
+
+.logo {
+  background-image: url(app/static/images/plant-based-food-mc-220323-02-273c7b.jpg);
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 20px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Fugaz One', cursive;
+  font-weight: 800;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* font options */
+/* 'Titan One', cursive; */
+/* 'Paytone One', sans-serif; */
