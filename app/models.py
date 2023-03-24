@@ -4,6 +4,19 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+entree = "Entree"
+appetizer = "Appetizer"
+dessert = "Dessert"
+cocktail = "Cocktail"
+
+categories = (
+    (entree, "Entree"),
+    (appetizer, "Appetizer"),
+    (dessert, "Dessert"),
+    (cocktail, "Cocktail"),
+)
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, null=True)
@@ -18,11 +31,12 @@ class BlogPost(models.Model):
     Title = models.CharField(max_length=50)
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     content = models.TextField(null=True, blank=False)
+    category = models.CharField(max_length=50, choices=categories, null=True)
     created_at = models.DateField(auto_now=False, auto_now_add=True)
     updated_at = models.DateField(auto_now=True, auto_now_add=False)
 
     def __str__(self):
-        return self.author.user.username + ' | ' + self.Title
+        return self.author.user.username + " | " + self.Title
 
 
 class Comment(models.Model):
@@ -32,4 +46,4 @@ class Comment(models.Model):
     created_on = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return self.author.user.username + ': '  + self.created_on.__str__()
+        return self.author.user.username + ": " + self.created_on.__str__()
