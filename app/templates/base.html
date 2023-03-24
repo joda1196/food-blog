@@ -26,9 +26,10 @@
   </head>
   <body>
     <nav class="sidebar w3-sidebar w3-bar-block">
-      <a href="#" class="w3-bar-item all-links">Home</a>
+      <!-- url homepage, create, login, register -->
+      <a href="{% url 'homepage' %}" class="w3-bar-item all-links">Home</a>
       <a href="#" class="w3-bar-item all-links">Create Blog</a>
-      <a href="#" class="w3-bar-item all-links">Login</a>
+      <a href="{% url 'login' %}" class="w3-bar-item all-links">Login</a>
       <a href="#" class="w3-bar-item all-links">Register</a>
       <div class="w3-dropdown-hover w3-right">
         <!-- if request.user.is_authenticated -->
@@ -39,20 +40,22 @@
           <!-- prettier-ignore -->
           <a href="" class="w3-bar-item w3-button">My Profile</a >
           <a href="#" class="w3-bar-item w3-button">Logout</a>
-          <!-- end if -->
+        <!-- end if -->
         </div>
       </div>
     </nav>
-    <div class="logo">
-      Food Simps <br />
-      Blog <br />
-      Forum
-    </div>
+    
     <nav
       class="sidebar w3-sidebar w3-bar-block"
       style="right: 0; background-color: #f8fffe"
     >
+      <div>
+        Food Simps <br />
+        Blog <br />
+        Forum
+      </div>
       <h2>Categories</h2>
+      <!-- url filter by (category) -->
       <a href="" class="w3-bar-item all-links">Entree</a>
       <a href="" class="w3-bar-item all-links">Appetizer</a>
       <a href="" class="w3-bar-item all-links">Dessert</a>
