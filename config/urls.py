@@ -26,6 +26,16 @@ urlpatterns = [
     path("create_my_blog/", views.create_my_blog, name="create"),
     path("blog/blog_detail/<str:pk>", views.blog_detail, name="detail"),
     path("register/", views.register_view, name="register"),
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     path("members/delete.html", views.deleteMember, name="delete_member"),
     path("members/view_members", views.view_members, name="view_members"),
+=======
+    path("myprofile/", views.my_profile, name="my_profile"),
+    path("updateprofile/", views.updateprofile, name="update"),
+>>>>>>> Stashed changes
+=======
+    path("myprofile/", views.my_profile, name="my_profile"),
+    path("updateprofile/", views.updateprofile, name="update"),
+>>>>>>> Stashed changes
 ]

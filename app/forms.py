@@ -40,3 +40,9 @@ class BlogPostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
         fields = ["Title", "content", "category"]
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ["name", "last_name", "bio"]

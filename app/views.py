@@ -17,6 +17,7 @@ def homepage(request):
     context = {"profile": profile, "blogs": blogs}
     return render(request, "homepage.html", context)
 
+
 @unauthenticated_user
 def login_view(request):
     if request.method == "POST":
@@ -72,6 +73,7 @@ def delete_comment(request, comment_id):
     return redirect("blog/blogcomment.html", post_id=comment.blog.id)
 
 
+@login_required
 def view_post(request):
     foods = BlogPost.objects.all()
     return render(request, "blog/blogcomment.html", {"foods": foods})
@@ -103,6 +105,13 @@ def register_view(request):
     return render(request, "register.html", context)
 
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+@admin_only
+>>>>>>> Stashed changes
 def deleteMember(request, pk):
     member = Profile.objects.get(id=pk)
     user = User.objects.get(id=member.user.id)
@@ -111,6 +120,7 @@ def deleteMember(request, pk):
         return redirect("login")
     context = {"member": member}
     return render(request, "delete.html", context)
+
 
 def filter_results(request):
     category = request.GET.get("category")
@@ -165,6 +175,7 @@ def blog_detail(request, pk):
     blog_post = BlogPost.objects.get(id=pk)
     return render(request, "blog/blogdetail.html", {"blog_post": blog_post})
 
+<<<<<<< Updated upstream
 @admin_only
 def view_members(request):
     members = Profile.objects.all()
@@ -179,3 +190,35 @@ def view_members(request):
     return render(request, "members/members.html", context)
 
 
+=======
+
+@login_required
+<<<<<<< Updated upstream
+=======
+def blog_detail(request, pk):
+    blog_post = get_object_or_404(BlogPost, pk=pk)
+    return render(request, "blog/blogdetail.html", {"blog_post": blog_post})
+
+
+@login_required
+>>>>>>> Stashed changes
+def my_profile(request):
+    user_profile = Profile.objects.get(user=request.user)
+    return render(request, "blog/myProfile.html", {"user_profile": user_profile})
+
+
+@login_required
+def updateprofile(request):
+    user_profile = Profile.objects.get(user=request.user)
+    if request.method == "POST":
+        form = ProfileForm(request.POST, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            return redirect("my profile")
+    else:
+        form = ProfileForm(instance=user_profile)
+    return render(request, "blog/updateProfile.html", {"form": form})
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
