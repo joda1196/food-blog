@@ -91,6 +91,8 @@
 
 .logo {
   background-image: url(app/static/images/plant-based-food-mc-220323-02-273c7b.jpg);
+  height: 10px;
+  width: 30px;
   background-repeat: repeat;
   background-clip: text;
   -webkit-text-fill-color: transparent;
