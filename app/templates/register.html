@@ -5,10 +5,9 @@
   <h2>Register</h2>
   {%csrf_token%}
   {% for field in form %}
-  <p class="form-field">{{field.label}} </p> 
-  <p class="form-field">{{field}}</p>
+  <p class="form-field">{{field.label}} {{field}}</p>
   {% endfor %}
-  <button type="submit">Create account</button>
+  <button class="form-button" type="submit">Create account</button>
 </form>
 {{form.errors}}
 {%endblock content%}
