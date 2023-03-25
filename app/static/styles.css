@@ -89,22 +89,24 @@
   transform: scaleX(1);
 }
 
-.logo {
-  background-image: url(app/static/images/plant-based-food-mc-220323-02-273c7b.jpg);
-  height: 10px;
-  width: 30px;
+ .logo {
+  background-image: url(images/plant-based-food-mc-220323-02-273c7b.jpg);
+  height: 300px;
+  width: 200px;
   background-repeat: repeat;
-  background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  place-content: center;
   margin-top: 20px;
-  font-size: 12px;
+  font-size: 4em;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
   font-family: "Fugaz One", cursive;
   font-weight: 800;
   -webkit-font-smoothing: antialiased;
-}
+} 
+
 
 /* font options */
 /* 'Titan One', cursive; */

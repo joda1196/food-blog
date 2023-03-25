@@ -45,20 +45,19 @@
         </div>
       </div>
     </nav>
-    <div class="logo">
-      Food Simps <br />
-      Blog <br />
-      Forum
-    </div>
     <nav
       class="sidebar w3-sidebar w3-bar-block"
       style="right: 0; background-color: #f8fffe"
     >
-      <div>
-        Food Simps <br />
-        Blog <br />
-        Forum
-      </div>
+      <div class="logo">Food Simps</div>
+      {% comment %}
+      <img
+        class="logo2"
+        src="{% static 'images/plant-based-food-mc-220323-02-273c7b.jpg' %}"
+        alt=""
+      />
+      {% endcomment %}
+
       <h2>Categories</h2>
       <!-- url filter by (category) -->
       <a
