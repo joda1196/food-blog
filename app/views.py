@@ -130,3 +130,29 @@ def myblogposts(request):
     my_posts = BlogPost.objects.filter(author=user.profile)
     context = {"my_posts": my_posts}
     return render(request, "blog/my_blog_posts.html", context)
+
+
+@login_required
+def create_my_blog(request):
+    if request.method == "POST":
+        form = BlogPostForm(request.POST)
+        if form.is_valid():
+            blog_post = form.save(commit=False)
+            blog_post.author = request.user.profile
+            blog_post.save()
+
+            return redirect("detail", pk=blog_post.pk)
+    else:
+        form = BlogPostForm()
+    return render(request, "blog/createblog.html", {"form": form})
+
+
+##once the function above passes and saves it should redirect to this function where it will display what you created
+##sending in pk as the argument manually from the code
+##fingers crossed
+
+
+@login_required
+def blog_detail(request, pk):
+    blog_post = get_object_or_404(BlogPost, pk=pk)
+    return render(request, "blog/blogdetail.html", {"blog_post": blog_post})
