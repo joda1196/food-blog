@@ -28,10 +28,9 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                if user.is_staff:
-                    return redirect("login")
-                else:
-                    return redirect("homepage")
+                return redirect("homepage")
+            else:
+                messages.info(request, "Username or Password is incorrect")
 
     else:
         form = LoginForm()
