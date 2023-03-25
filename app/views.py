@@ -29,7 +29,7 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 if user.is_staff:
-                    return redirect("superuser")
+                    return redirect("homepage")
                 else:
                     return redirect("homepage")
 
@@ -100,12 +100,12 @@ def register_view(request):
             )
             messages.success(request, "Account successfully created for " + username)
             return redirect("login")
-        else: messages.info(request, "Passwords did not match")
+        else:
+            messages.info(request, "Passwords did not match")
     context = {"form": form}
     return render(request, "register.html", context)
 
 
-# @login_required
 def filter_results(request):
     category = request.GET.get("category")
     posts = BlogPost.objects.filter(category=category)
