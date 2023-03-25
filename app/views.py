@@ -8,9 +8,12 @@ def test(request):
     context = {"test": "testing_django"}
     return render(request, "test.html", context)
 
-
+@login_required(login_url="login")
 def homepage(request):
-    return render(request, "homepage.html")
+    profile = request.user.profile
+    blogs = BlogPost.objects.filter(author=profile.id)
+    context = {"profile": profile,"blogs":blogs}
+    return render(request, "homepage.html", context)
 
 
 def login_view(request):
@@ -72,7 +75,6 @@ def delete_comment(request, comment_id):
 def view_post(request):
     foods = BlogPost.objects.all()
     return render(request, "blog/blogcomment.html", {"foods": foods})
-
 
 def register_view(request):
     form = CustomUserCreatingForm()

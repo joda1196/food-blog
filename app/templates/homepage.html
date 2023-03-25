@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+{% for post in blogs %}
 <div class="w3-card blog-post-container">
     <div style="display: flex; justify-content: left;">
         <div id="blog-thumbnail"></div>
         <div class="blog-content">
-            <h3>Title</h3>
+            <h3>{{post.Title}}</h3>
             <div style="display: flex;">
-                <p class="blog-date-user">Date</p>
-                <p class="blog-date-user">User</p>
+                <p class="blog-date-user">{{post.created_at}}</p>
+                <p class="blog-date-user">by: {{post.author.user}}</p>
             </div>
-            <p>Content</p>
+            <p>{{post.content}}</p>
         </div>
     </div>
     <a class="blog-read-more" href="">read more</a>
 </div>
+{%endfor%}
 {% endblock content%}
