@@ -107,7 +107,10 @@ def register_view(request):
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 @admin_only
@@ -201,6 +204,9 @@ def blog_detail(request, pk):
 
 
 @login_required
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 def my_profile(request):
     user_profile = Profile.objects.get(user=request.user)
@@ -219,6 +225,9 @@ def updateprofile(request):
         form = ProfileForm(instance=user_profile)
     return render(request, "blog/updateProfile.html", {"form": form})
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
