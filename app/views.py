@@ -12,9 +12,8 @@ from .filters import *
 
 @login_required(login_url="login")
 def homepage(request):
-    profile = request.user.profile
-    blogs = BlogPost.objects.all(author=profile.id)
-    context = {"profile": profile, "blogs": blogs}
+    blogs = BlogPost.objects.all()
+    context = {"blogs": blogs}
     return render(request, "homepage.html", context)
 
 
