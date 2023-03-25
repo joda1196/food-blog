@@ -104,23 +104,7 @@ def register_view(request):
     context = {"form": form}
     return render(request, "register.html", context)
 
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 @admin_only
->>>>>>> Stashed changes
 def deleteMember(request, pk):
     member = Profile.objects.get(id=pk)
     user = User.objects.get(id=member.user.id)
@@ -184,7 +168,6 @@ def blog_detail(request, pk):
     blog_post = BlogPost.objects.get(id=pk)
     return render(request, "blog/blogdetail.html", {"blog_post": blog_post})
 
-<<<<<<< Updated upstream
 @admin_only
 def view_members(request):
     members = Profile.objects.all()
@@ -199,27 +182,13 @@ def view_members(request):
     return render(request, "members/members.html", context)
 
 
-=======
-
 @login_required
-<<<<<<< Updated upstream
-=======
 def blog_detail(request, pk):
     blog_post = get_object_or_404(BlogPost, pk=pk)
     return render(request, "blog/blogdetail.html", {"blog_post": blog_post})
 
 
 @login_required
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 def my_profile(request):
     user_profile = Profile.objects.get(user=request.user)
     return render(request, "blog/myProfile.html", {"user_profile": user_profile})
@@ -236,16 +205,3 @@ def updateprofile(request):
     else:
         form = ProfileForm(instance=user_profile)
     return render(request, "blog/updateProfile.html", {"form": form})
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
