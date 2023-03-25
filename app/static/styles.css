@@ -115,5 +115,9 @@
 .all-forms {
   text-align: center;
   font-size: larger;
-  margin: 2em;
+  margin-inline: 500px;
+  margin-block: 20px;
+  padding: 20px;
+  background-color: grey;
+  border-radius: 25px;
 }
