@@ -32,6 +32,9 @@
       {%if request.user.is_authenticated%}
       <a href="{% url 'homepage' %}" class="w3-bar-item all-links">Home</a>
       <a href="{% url 'create' %}" class="w3-bar-item all-links">Create Blog</a>
+      {%if "moderators" in groups%}
+      <a href="{% url 'view_members' %}" class="w3-bar-item all-links">Members</a>
+      {%endif%}
       {%else%}
       <a href="{% url 'login' %}" class="w3-bar-item all-links">Login</a>
       <a href="{% url 'register' %}" class="w3-bar-item all-links">Register</a>

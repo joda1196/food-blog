@@ -14,7 +14,7 @@
             <p>{{post.content}}</p>
         </div>
     </div>
-    <a class="blog-read-more" href="">read more</a>
+    <a class="blog-read-more" href="{% url 'detail' post.id %}">read more</a>
 </div>
 {%endfor%}
 {% endblock content%}

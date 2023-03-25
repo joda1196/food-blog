@@ -24,6 +24,8 @@ urlpatterns = [
     path("logout/", views.logout_view, name="logout"),
     path("filter_results/", views.filter_results, name="filter results"),
     path("create_my_blog/", views.create_my_blog, name="create"),
-    path("blog_detail/", views.blog_detail, name="detail"),
+    path("blog/blog_detail/<str:pk>", views.blog_detail, name="detail"),
     path("register/", views.register_view, name="register"),
+    path("members/delete.html", views.deleteMember, name="delete_member"),
+    path("members/view_members", views.view_members, name="view_members"),
 ]

@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import Group
 from .decorators import *
+from .filters import *
 
 # Create your views here.
 
@@ -101,7 +102,7 @@ def register_view(request):
     context = {"form": form}
     return render(request, "register.html", context)
 
-@admin_only
+
 def deleteMember(request, pk):
     member = Profile.objects.get(id=pk)
     user = User.objects.get(id=member.user.id)
@@ -159,8 +160,22 @@ def create_my_blog(request):
 ##sending in pk as the argument manually from the code
 ##fingers crossed
 
-
-@login_required
+ 
 def blog_detail(request, pk):
-    blog_post = get_object_or_404(BlogPost, pk=pk)
+    blog_post = BlogPost.objects.get(id=pk)
     return render(request, "blog/blogdetail.html", {"blog_post": blog_post})
+
+@admin_only
+def view_members(request):
+    members = Profile.objects.all()
+    total_members = Profile.objects.count()
+    mem_filter = MemberFilter(request.GET, queryset=members)
+    members = mem_filter.qs
+    context = {
+        "members": members,
+        "total_members": total_members,
+        "mem_filter": mem_filter,
+    }
+    return render(request, "members/members.html", context)
+
+
