@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from app.forms import *
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.models import Group
 
 # Create your views here.
 def test(request):
@@ -83,13 +85,27 @@ def register_view(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            username = form.cleaned_data.get("username")
+            name = form.cleaned_data.get("first_name")
+            last_name = form.cleaned_data.get("last_name")
+            email = form.cleaned_data.get("email")
+            group = Group.objects.get(name="members")
+            user.groups.add(group)
+            Profile.objects.create(
+                user=user,
+                name=name,
+                last_name=last_name,
+                email=email,
+            )
+            messages.success(request, "Account successfully created for " + username)
             return redirect("login")
+        else: messages.info(request, "Passwords did not match")
     context = {"form": form}
     return render(request, "register.html", context)
 
 
-@login_required
+# @login_required
 def filter_results(request):
     category = request.GET.get("category")
     posts = BlogPost.objects.filter(category=category)
