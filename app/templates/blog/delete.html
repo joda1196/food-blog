@@ -1,0 +1,9 @@
+<h2>
+    Are you sure you want to remove "{{member}}"?
+</h2>
+<form action=" {% url 'delete_member' member.id %}" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'homepage' %}">Cancel</a>
+        <input type="submit" name="Confirm">
+
+</form>

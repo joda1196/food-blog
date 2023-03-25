@@ -4,6 +4,7 @@ from app.forms import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import Group
+from .decorators import *
 
 # Create your views here.
 
@@ -15,7 +16,7 @@ def homepage(request):
     context = {"profile": profile, "blogs": blogs}
     return render(request, "homepage.html", context)
 
-
+@unauthenticated_user
 def login_view(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -70,7 +71,6 @@ def delete_comment(request, comment_id):
     return redirect("blog/blogcomment.html", post_id=comment.blog.id)
 
 
-@login_required
 def view_post(request):
     foods = BlogPost.objects.all()
     return render(request, "blog/blogcomment.html", {"foods": foods})
@@ -101,6 +101,15 @@ def register_view(request):
     context = {"form": form}
     return render(request, "register.html", context)
 
+@admin_only
+def deleteMember(request, pk):
+    member = Profile.objects.get(id=pk)
+    user = User.objects.get(id=member.user.id)
+    if request.method == "POST":
+        user.delete()
+        return redirect("login")
+    context = {"member": member}
+    return render(request, "delete.html", context)
 
 def filter_results(request):
     category = request.GET.get("category")
@@ -109,7 +118,6 @@ def filter_results(request):
     return render(request, "filterresults.html", context)
 
 
-@login_required
 def search_posts(request):
     if request.method == "POST":
         form = SearchForm(request.POST)
