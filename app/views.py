@@ -6,9 +6,6 @@ from django.contrib import messages
 from django.contrib.auth.models import Group
 
 # Create your views here.
-def test(request):
-    context = {"test": "testing_django"}
-    return render(request, "test.html", context)
 
 
 @login_required(login_url="login")
