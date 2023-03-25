@@ -1,16 +1,27 @@
-{% extends "base.html" %} {% block content %}
-<h1>Posts for {{ category }}</h1>
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+{% block content %}
+<h1 style="text-align: center;">{{ category }}</h1>
 <hr />
 
 {% if posts %}
-<ul>
-  {% for post in posts %}
-  <li>
-    {{ post.Title }} - {{ post.author.user.username }} - {{ post.created_at }}
-  </li>
-  <p>{{ post.content }}</p>
-  {% endfor %}
-</ul>
+{% for post in posts%}
+<div class="w3-card blog-post-container">
+  <div style="display: flex; justify-content: left;">
+      <div id="blog-thumbnail"></div>
+      <div class="blog-content">
+          <h3>{{post.Title}}</h3>
+          <div style="display: flex;">
+              <p class="blog-date-user">{{post.created_at}}</p>
+              <p class="blog-date-user">by: {{post.author.user}}</p>
+          </div>
+          <p>{{post.content}}</p>
+      </div>
+  </div>
+  <a class="blog-read-more" href="">read more</a>
+</div>
+{% endfor %}
 {% else %}
-<p>No posts found for category "{{ category }}".</p>
-{% endif %} {% endblock %}
+<p style="text-align: center;">No posts found for category "{{ category }}".</p>
+{% endif %}
+{% endblock %}

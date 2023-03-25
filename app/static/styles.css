@@ -1,6 +1,6 @@
 .sidebar {
   border-right: 1px solid grey;
-  margin: 10px;
+  padding: 10px;
 }
 .right-bar {
   border-left: 1px solid grey;
