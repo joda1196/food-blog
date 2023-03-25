@@ -18,6 +18,7 @@ class CustomUserCreatingForm(UserCreationForm):
     class Meta:
         model = User
         fields = [
+            "username",
             "email",
             "first_name",
             "last_name",
@@ -29,3 +30,7 @@ class CustomUserCreatingForm(UserCreationForm):
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=100)
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField(label="Search", max_length=50, required=True)

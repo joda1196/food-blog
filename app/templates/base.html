@@ -26,14 +26,9 @@
   </head>
   <body>
     <nav class="sidebar w3-sidebar w3-bar-block">
-      <div class="logo">
-        Food Simps <br />
-        Blog <br />
-        Forum
-      </div>
       <a href="#" class="w3-bar-item all-links">Home</a>
       <a href="#" class="w3-bar-item all-links">Create Blog</a>
-      <a href="#" class="w3-bar-item all-links">Login</a>
+      <a href="{% url 'login' %}" class="w3-bar-item all-links">Login</a>
       <a href="#" class="w3-bar-item all-links">Register</a>
       <div class="w3-dropdown-hover w3-right">
         <!-- if request.user.is_authenticated -->
@@ -43,20 +38,49 @@
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
           <!-- prettier-ignore -->
           <a href="" class="w3-bar-item w3-button">My Profile</a >
-          <a href="#" class="w3-bar-item w3-button">Logout</a>
+          {% if request.user.is_authenticated%}
+          <a href="{% url 'logout'%}" class="w3-bar-item w3-button">Logout</a>
+          {% endif %}
           <!-- end if -->
         </div>
       </div>
     </nav>
+    <div class="logo">
+      Food Simps <br />
+      Blog <br />
+      Forum
+    </div>
     <nav
       class="sidebar w3-sidebar w3-bar-block"
       style="right: 0; background-color: #f8fffe"
     >
+      <div>
+        Food Simps <br />
+        Blog <br />
+        Forum
+      </div>
       <h2>Categories</h2>
-      <a href="" class="w3-bar-item all-links">Entree</a>
-      <a href="" class="w3-bar-item all-links">Appetizer</a>
-      <a href="" class="w3-bar-item all-links">Dessert</a>
-      <a href="" class="w3-bar-item all-links">Cocktail</a>
+      <!-- url filter by (category) -->
+      <a
+        href="{% url 'filter results'%}?category=Entree"
+        class="w3-bar-item all-links"
+        >Entree</a
+      >
+      <a
+        href="{% url 'filter results'%}?category=Appetizer"
+        class="w3-bar-item all-links"
+        >Appetizer</a
+      >
+      <a
+        href="{% url 'filter results'%}?category=Dessert"
+        class="w3-bar-item all-links"
+        >Dessert</a
+      >
+      <a
+        href="{% url 'filter results'%}?category=Cocktail"
+        class="w3-bar-item all-links"
+        >Cocktail</a
+      >
     </nav>
     {% block content %} {% endblock content%}
   </body>

@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block content %} {% if my_posts %}
+<ul>
+  {% for post in my_posts %}
+  <li>{{ post.Title }}</li>
+  {% endfor %}
+</ul>
+{% else %} {% include 'no_posts.html' %} {% endif %} {% endblock content %}

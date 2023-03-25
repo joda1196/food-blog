@@ -2,15 +2,18 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from app.forms import *
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.models import Group
 
 # Create your views here.
-def test(request):
-    context = {"test": "testing_django"}
-    return render(request, "test.html", context)
 
 
+@login_required(login_url="login")
 def homepage(request):
-    return render(request, "homepage.html")
+    profile = request.user.profile
+    blogs = BlogPost.objects.filter(author=profile.id)
+    context = {"profile": profile, "blogs": blogs}
+    return render(request, "homepage.html", context)
 
 
 def login_view(request):
@@ -22,10 +25,9 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                if user.is_staff:
-                    return redirect("superuser")
-                else:
-                    return redirect("homepage")
+                return redirect("homepage")
+            else:
+                messages.info(request, "Username or Password is incorrect")
 
     else:
         form = LoginForm()
@@ -79,7 +81,52 @@ def register_view(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            username = form.cleaned_data.get("username")
+            name = form.cleaned_data.get("first_name")
+            last_name = form.cleaned_data.get("last_name")
+            email = form.cleaned_data.get("email")
+            group = Group.objects.get(name="members")
+            user.groups.add(group)
+            Profile.objects.create(
+                user=user,
+                name=name,
+                last_name=last_name,
+                email=email,
+            )
+            messages.success(request, "Account successfully created for " + username)
             return redirect("login")
+        else:
+            messages.info(request, "Passwords did not match")
     context = {"form": form}
     return render(request, "register.html", context)
+
+
+def filter_results(request):
+    category = request.GET.get("category")
+    posts = BlogPost.objects.filter(category=category)
+    context = {"posts": posts, "category": category}
+    return render(request, "filterresults.html", context)
+
+
+@login_required
+def search_posts(request):
+    if request.method == "POST":
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            query = form.cleaned_data["query"]
+            posts = BlogPost.objects.filter(Title__icontains=query)
+            context = {"posts": posts, "form": form}
+            return render(request, "search_results.html", context)
+    else:
+        form = SearchForm()
+    context = {"form": form}
+    return render(request, "search.html", context)
+
+
+@login_required
+def myblogposts(request):
+    user = request.user
+    my_posts = BlogPost.objects.filter(author=user.profile)
+    context = {"my_posts": my_posts}
+    return render(request, "blog/my_blog_posts.html", context)

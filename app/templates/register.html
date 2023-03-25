@@ -1,5 +1,5 @@
 {%extends 'base.html'%} {%block content%}
-<form method="POST">
+<form class="all-forms" method="POST">
   {%csrf_token%} {{form.as_p}}
   <button type="submit">Create account</button>
 </form>
