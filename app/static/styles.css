@@ -2,7 +2,7 @@
   border-right: 1px solid grey;
   border-left: 1px solid grey;
 }
-/* ALL BUTTONS/LINKS */
+/* =====ALL BUTTONS/LINKS===== */
 .all-links {
   position: relative;
   color: #000;
@@ -30,7 +30,7 @@
 .all-links:hover::before {
   transform: scaleX(1);
 }
-/* BLOG POST */
+/* =====BLOG POST===== */
 .blog-post-container {
   width: 65%;
   margin: auto;
@@ -111,12 +111,17 @@
 /* 'Titan One', cursive; */
 /* 'Paytone One', sans-serif; */
 
+/* =====FORM STYLING===== */
 .all-forms {
   text-align: center;
   font-size: larger;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
   margin-inline: 500px;
   margin-block: 20px;
   padding: 20px;
-  background-color: grey;
-  border-radius: 25px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
 }

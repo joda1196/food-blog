@@ -1,6 +1,14 @@
-{%extends 'base.html'%} {%block content%}
+<!-- prettier-ignore -->
+{%extends 'base.html'%}
+{%block content%}
 <form class="all-forms" method="POST">
-  {%csrf_token%} {{form.as_p}}
+  <h2>Register</h2>
+  {%csrf_token%}
+  {% for field in form %}
+  <p class="form-field">{{field.label}} </p> 
+  <p class="form-field">{{field}}</p>
+  {% endfor %}
   <button type="submit">Create account</button>
 </form>
-{{form.errors}} {%endblock content%}
+{{form.errors}}
+{%endblock content%}

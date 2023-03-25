@@ -1,8 +1,10 @@
-{%extends 'base.html'%} {% block content%}
-<h2>Login</h2>
-
+<!-- prettier-ignore -->
+{%extends 'base.html'%}
+{% block content%}
 <form class="all-forms" method="POST">
-  {%csrf_token%} {{ form.as_p}}
+  <h2>Login</h2>
+  {%csrf_token%}
+  {{form.as_p}}
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
 {% for message in messages %}
