@@ -89,20 +89,21 @@ def register_view(request):
     return render(request, "register.html", context)
 
 
-def cocktail_view(request):
-    # form
-    #
-    cocktail = BlogPost.filter()
+@login_required
+def filter_results(request):
+    category = request.GET.get("category")
+    posts = BlogPost.objects.filter(category=category)
+    context = {"posts": posts, "category": category}
+    return render(request, "filterresults.html", context)
 
 
 @login_required
 def search_posts(request):
-    user = request.user
     if request.method == "POST":
         form = SearchForm(request.POST)
         if form.is_valid():
             query = form.cleaned_data["query"]
-            posts = BlogPost.objects.filter(author=user.profile, Title__icontains=query)
+            posts = BlogPost.objects.filter(Title__icontains=query)
             context = {"posts": posts, "form": form}
             return render(request, "search_results.html", context)
     else:
