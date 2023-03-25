@@ -30,8 +30,13 @@ urlpatterns = [
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     path("members/delete.html", views.deleteMember, name="delete_member"),
     path("members/view_members", views.view_members, name="view_members"),
+=======
+    path("myprofile/", views.my_profile, name="my_profile"),
+    path("updateprofile/", views.updateprofile, name="update"),
+>>>>>>> Stashed changes
 =======
     path("myprofile/", views.my_profile, name="my_profile"),
     path("updateprofile/", views.updateprofile, name="update"),
