@@ -29,7 +29,7 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 if user.is_staff:
-                    return redirect("homepage")
+                    return redirect("login")
                 else:
                     return redirect("homepage")
 
