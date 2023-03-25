@@ -8,11 +8,12 @@ def test(request):
     context = {"test": "testing_django"}
     return render(request, "test.html", context)
 
+
 @login_required(login_url="login")
 def homepage(request):
     profile = request.user.profile
     blogs = BlogPost.objects.filter(author=profile.id)
-    context = {"profile": profile,"blogs":blogs}
+    context = {"profile": profile, "blogs": blogs}
     return render(request, "homepage.html", context)
 
 
@@ -76,6 +77,7 @@ def view_post(request):
     foods = BlogPost.objects.all()
     return render(request, "blog/blogcomment.html", {"foods": foods})
 
+
 def register_view(request):
     form = CustomUserCreatingForm()
     if request.method == "POST":
@@ -91,3 +93,27 @@ def cocktail_view(request):
     # form
     #
     cocktail = BlogPost.filter()
+
+
+@login_required
+def search_posts(request):
+    user = request.user
+    if request.method == "POST":
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            query = form.cleaned_data["query"]
+            posts = BlogPost.objects.filter(author=user.profile, Title__icontains=query)
+            context = {"posts": posts, "form": form}
+            return render(request, "search_results.html", context)
+    else:
+        form = SearchForm()
+    context = {"form": form}
+    return render(request, "search.html", context)
+
+
+@login_required
+def myblogposts(request):
+    user = request.user
+    my_posts = BlogPost.objects.filter(author=user.profile)
+    context = {"my_posts": my_posts}
+    return render(request, "blog/my_blog_posts.html", context)
