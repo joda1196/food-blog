@@ -1,5 +1,11 @@
+<!-- prettier-ignore -->
 {%extends 'base.html'%}
 {% block content%}
 {% for member in members %}
-
-{%endblock%}
+<div class="w3-card blog-post-container">
+    <h4><a href="{% url 'view profile' username=member.user.username%}">{{member.user.username}}</a></h4>
+    <p>{{member.name}} {{member.last_name}}</p>
+    <p><a href="{% url 'delete_member' member.id %}">Ban user</a></p>
+</div>
+{%endfor%}
+{%endblock content%}

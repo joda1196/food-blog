@@ -1,11 +1,23 @@
 <!-- prettier-ignore -->
 {% extends 'base.html' %}
 {% block content %}
-<div class="w3-card blog-post-container">
-    <h1>{{blog_post.Title}}</h1>
-    <p>Author: {{blog_post.author}}</p>
-    <p>category: {{blog_post.category}}</p>
-    <p>Created on:{{blog_post.created_at}}</p>
-    <p>{{blog_post.content}}</p>
-<div/>
+    <div class="blog-post-container">
+        <h1>{{blog_post.Title}}</h1>
+        <p>Author: {{blog_post.author}}</p>
+        <p>category: {{blog_post.category}}</p>
+        <p>Created on:{{blog_post.created_at}}</p>
+        <hr>
+        <p >{{blog_post.content}}</p>
+        
+    <div/>
+    <hr>
+    <a class="comment-btn" href="">Comment</a>
+
+    <!-- for comment in comments -->
+    <div class="comments ">
+        <hr>
+        <p>content</p>
+        <p class="comment-btn">-comment author</p>
+    </div>
+    <hr>
 {% endblock content %}

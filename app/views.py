@@ -63,7 +63,6 @@ def blogcomment_detail(request, post_id):
     return render(request, "blog/blogcomment.html", context)
 
 
-##maybe this will work????
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id)
@@ -189,11 +188,18 @@ def blog_detail(request, pk):
     return render(request, "blog/blogdetail.html", {"blog_post": blog_post})
 
 
+
 @login_required
 def my_profile(request):
     user_profile = Profile.objects.get(user=request.user)
     return render(request, "blog/myProfile.html", {"user_profile": user_profile})
 
+@login_required
+def view_profile(request,username):
+    user =User.objects.get(username = username)
+    profile = user.profile
+    context = {'profile': profile}
+    return render(request,'viewprofile.html',context)
 
 @login_required
 def updateprofile(request):

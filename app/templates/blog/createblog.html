@@ -4,8 +4,10 @@
 <form class="all-forms" method="POST">
   <h2>Create a new Food Post</h2>
   {% csrf_token %}
-  {{form.as_p}}
-  <button class="form-button" type="submit">Submit</button>
+  {% for field in form %}
+  <p class="form-field">{{field.label}} {{field}}</p>
+  {% endfor %}
+  <button class="form-button" type="submit">Post</button>
 </form>
 
 {% endblock content %}

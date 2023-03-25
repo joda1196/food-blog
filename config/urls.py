@@ -30,4 +30,5 @@ urlpatterns = [
     path("members/view_members", views.view_members, name="view_members"),
     path("myprofile/", views.my_profile, name="my_profile"),
     path("updateprofile/", views.updateprofile, name="update"),
+    path("viewprofile/",views.view_profile, name="view profile"),
 ]

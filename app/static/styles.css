@@ -2,11 +2,13 @@
   border-right: 1px solid grey;
   padding: 10px;
 }
+
 .right-bar {
   border-left: 1px solid grey;
   right: 0;
   padding-left: 20px;
 }
+
 /* =====ALL BUTTONS/LINKS===== */
 .all-links {
   position: relative;
@@ -35,15 +37,18 @@
 .all-links:hover::before {
   transform: scaleX(1);
 }
+
 /* =====BLOG POST===== */
 .blog-post-container {
   width: 65%;
   margin: auto;
+  margin-bottom: 20px;
   padding: 30px;
   top: 10px;
   position: relative;
   border-radius: 5px;
 }
+
 #blog-thumbnail {
   width: 100px;
   height: 100px;
@@ -53,30 +58,32 @@
   background: grey;
   margin: auto;
 }
+
 .blog-content {
   margin-left: 5px;
   padding: 5px;
-  border: 1px solid grey;
-  border-radius: 5px;
   text-align: left;
   width: 90%;
 }
+
 .blog-content h3 {
   font-size: xx-large;
 }
+
 .blog-date-user {
   padding: 0;
   margin: 0;
   padding-right: 2em;
   color: lightgray;
 }
+
 .blog-read-more {
   position: absolute;
-  bottom: 5px;
   right: 30px;
   text-decoration: none;
   color: lightskyblue;
 }
+
 .blog-read-more::before {
   content: "";
   position: absolute;
@@ -119,25 +126,26 @@
 /* =====FORM STYLING===== */
 .all-forms {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   font-size: larger;
-  margin-inline: 500px;
+  margin-inline: 25%;
   margin-block: 20px;
   padding: 20px;
   background-color: whitesmoke;
   border-radius: 5px;
   box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
 }
+
 .form-field {
   display: flex;
   text-align: left;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
+
 .form-button {
   font-weight: 600;
   text-align: center;
@@ -154,4 +162,17 @@
   overflow: hidden;
   transition: all 200ms ease-in-out;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* =====BLOG COMMENTS===== */
+.comments {
+  padding-inline: 10px;
+  font-size: small;
+  background-color: whitesmoke;
+}
+
+.comment-btn {
+  text-align: right;
+  right: 0;
+  color: lightskyblue;
 }
