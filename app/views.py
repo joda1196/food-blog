@@ -104,6 +104,7 @@ def register_view(request):
     context = {"form": form}
     return render(request, "register.html", context)
 
+
 @admin_only
 def deleteMember(request, pk):
     member = Profile.objects.get(id=pk)
@@ -163,10 +164,11 @@ def create_my_blog(request):
 ##sending in pk as the argument manually from the code
 ##fingers crossed
 
- 
+
 def blog_detail(request, pk):
     blog_post = BlogPost.objects.get(id=pk)
     return render(request, "blog/blogdetail.html", {"blog_post": blog_post})
+
 
 @admin_only
 def view_members(request):
@@ -204,4 +206,5 @@ def updateprofile(request):
             return redirect("my profile")
     else:
         form = ProfileForm(instance=user_profile)
+
     return render(request, "blog/updateProfile.html", {"form": form})
