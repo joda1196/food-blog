@@ -26,11 +26,18 @@
   </head>
   <body>
     <nav class="sidebar w3-sidebar w3-bar-block">
+<<<<<<< HEAD
       <!-- url homepage, create, login, register -->
       <a href="{% url 'homepage' %}" class="w3-bar-item all-links">Home</a>
       <a href="{%url 'create'%}" class="w3-bar-item all-links">Create Blog</a>
       <a href="{% url 'login' %}" class="w3-bar-item all-links">Login</a>
       <a href="{%url 'register'%}" class="w3-bar-item all-links">Register</a>
+=======
+      <a href="#" class="w3-bar-item all-links">Home</a>
+      <a href="#" class="w3-bar-item all-links">Create Blog</a>
+      <a href="{% url 'login' %}" class="w3-bar-item all-links">Login</a>
+      <a href="{% url 'register' %}" class="w3-bar-item all-links">Register</a>
+>>>>>>> debf2d29db6ef82abcb45d20ff72236eabaf4ec3
       <div class="w3-dropdown-hover w3-right">
         <!-- if request.user.is_authenticated -->
         <button class="w3-button w3-text-light-blue w3-padding-16">
@@ -46,7 +53,11 @@
         </div>
       </div>
     </nav>
-
+    <div class="logo">
+      Food Simps <br />
+      Blog <br />
+      Forum
+    </div>
     <nav
       class="sidebar w3-sidebar w3-bar-block"
       style="right: 0; background-color: #f8fffe"
