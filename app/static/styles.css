@@ -89,9 +89,9 @@
   transform: scaleX(1);
 }
 
- .logo {
+.logo {
   background-image: url(images/plant-based-food-mc-220323-02-273c7b.jpg);
-  height: 300px;
+  height: 200px;
   width: 200px;
   background-repeat: repeat;
   -webkit-background-clip: text;
@@ -105,8 +105,7 @@
   font-family: "Fugaz One", cursive;
   font-weight: 800;
   -webkit-font-smoothing: antialiased;
-} 
-
+}
 
 /* font options */
 /* 'Titan One', cursive; */
