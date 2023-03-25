@@ -23,10 +23,7 @@ urlpatterns = [
     path("login/", views.login_view, name="login"),
     path("logout/", views.logout_view, name="logout"),
     path("filter_results/", views.filter_results, name="filter results"),
-<<<<<<< HEAD
     path("create_my_blog/", views.create_my_blog, name="create"),
     path("blog_detail/", views.blog_detail, name="detail"),
-=======
->>>>>>> debf2d29db6ef82abcb45d20ff72236eabaf4ec3
     path("register/", views.register_view, name="register"),
 ]
