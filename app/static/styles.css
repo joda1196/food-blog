@@ -1,6 +1,11 @@
 .sidebar {
   border-right: 1px solid grey;
+  margin: 10px;
+}
+.right-bar {
   border-left: 1px solid grey;
+  right: 0;
+  padding-left: 20px;
 }
 /* =====ALL BUTTONS/LINKS===== */
 .all-links {
@@ -90,15 +95,15 @@
 }
 
 .logo {
+  margin: 10px;
   background-image: url(images/plant-based-food-mc-220323-02-273c7b.jpg);
-  height: 200px;
-  width: 200px;
+  background-size: contain;
+  height: 150px;
+  width: 150px;
   background-repeat: repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  place-content: center;
-  margin-top: 20px;
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
