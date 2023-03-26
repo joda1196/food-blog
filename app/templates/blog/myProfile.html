@@ -1,14 +1,14 @@
 <!-- prettier-ignore -->
 {% extends 'base.html' %}
 {% block content %}
-<div style="text-align: center;">
+<div class="create-blog">
     <h1>My Profile</h1>
-    <p><strong>Username:</strong>{{user_profile.user}}</p>
-    <p><strong>Name: </strong>{{user_profile.name}}</p>
-    <p><strong>Last Name:</strong>{{user_profile.last_name}}</p>
-    <p><strong>Bio:</strong>{{user_profile.bio}}</p>
+    <p><strong>Username:</strong> {{user_profile.user}}</p>
+    <p><strong>Name: </strong> {{user_profile.name}}</p>
+    <p><strong>Last Name:</strong> {{user_profile.last_name}}</p>
+    <p><strong>Bio:</strong> {{user_profile.bio}}</p>
 
-    <a href="{%url 'update'%}" class="btn btn-secondary">Edit</a>
+    <a href="{%url 'update'%}" class="form-button">Edit</a>
 </div>
 
 {% endblock content %}

@@ -1,10 +1,13 @@
 <!-- prettier-ignore -->
 {% extends 'base.html' %}
 {% block content %}
-<h1>Edit Profile</h1>
-<form method="POST">
-  {% csrf_token %} {{form.as_p}}
-  <button type="submit">Save</button>
+<form class="all-forms" method="POST">
+  <h2>Edit Profile</h2>
+  {% csrf_token %}
+  {% for field in form %}
+  <p class="form-field">{{field.label}} {{field}}</p>
+  {% endfor %}
+  <button class="form-button" type="submit">Save</button>
 </form>
 
 {% endblock content %}
