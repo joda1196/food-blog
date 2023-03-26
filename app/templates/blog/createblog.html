@@ -1,8 +1,9 @@
 <!-- prettier-ignore -->
 {% extends 'base.html'%}
 {% block content %}
-<form class="all-forms" method="POST">
-  <h2>Create a new Food Post</h2>
+<form class="create-blog" method="POST">
+  <h2 style="text-align: left;">Create a new Food Post</h2>
+  <hr>
   {% csrf_token %}
   {% for field in form %}
   <p class="form-field">{{field.label}} {{field}}</p>
