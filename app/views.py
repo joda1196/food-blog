@@ -146,7 +146,6 @@ def blog_detail(request, pk):
     return render(request, "blog/blogdetail.html", context)
 
 
-@admin_only
 def view_members(request):
     members = Profile.objects.all()
     total_members = Profile.objects.count()
@@ -210,7 +209,6 @@ def delete_comment(request, pk):
     return render(request, "members/delete_comment.html", context)
 
 
-@admin_only
 def deleteMember(request, pk):
     member = Profile.objects.get(id=pk)
     user = User.objects.get(id=member.user.id)

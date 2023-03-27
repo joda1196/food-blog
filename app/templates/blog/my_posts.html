@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1 style="text-align: center;">{{request.user.id}}'s Posts</h1>
+<h1 style="text-align: center;">{{request.user}}'s Posts</h1>
 <hr>
 
 {% if my_posts %}
@@ -12,10 +12,10 @@
         <div style="display: flex; justify-content: left;">
             <div id="blog-thumbnail"></div>
             <div class="blog-content">
-                <h3>{{post.author.id}}</h3>
+                <h3>{{post.Title}}</h3>
                 <div style="display: flex;">
                     <p class="blog-date-user">{{post.created_at}}</p>
-                    <p class="blog-date-user">by: {{post.author.user.id}}</p>
+                    <p class="blog-date-user">by: {{post.author}}</p>
                 </div>
                 <p id="blog-text">{{post.content}}</p>
             </div>

@@ -11,9 +11,9 @@
         
     <div/>
     <hr>
-    <a class="comment-btn" href="{% url 'comment' blog_post.id %}">Comment</a>
+    <a class="comment-btn" href="{% url 'comment' blog_post.id %}">Comment</a>&nbsp
     {% if 'moderators' in groups or blog_post.author.user == request.user %}
-    <a style="color:red; right:0;" href="{%url 'delete_blog' blog_post.id %}">delete</a>
+    <a style="color:red; right:0; font-size:1.5em;" href="{%url 'delete_blog' blog_post.id %}">Delete</a>
     {%endif%}
 
     <!-- for comment in comments -->
