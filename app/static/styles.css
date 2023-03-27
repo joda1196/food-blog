@@ -137,6 +137,7 @@
 
 /* =====FORM STYLING===== */
 .all-forms {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -201,4 +202,5 @@
   text-align: right;
   right: 0;
   color: lightskyblue;
+  font-size: 1.5em;
 }

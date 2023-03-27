@@ -1,0 +1,30 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 style="text-align: center;">{{request.user.id}}'s Posts</h1>
+<hr>
+
+{% if my_posts %}
+
+  {% for post in my_posts%}
+    <div class="w3-card blog-post-container">
+        <div style="display: flex; justify-content: left;">
+            <div id="blog-thumbnail"></div>
+            <div class="blog-content">
+                <h3>{{post.author.id}}</h3>
+                <div style="display: flex;">
+                    <p class="blog-date-user">{{post.created_at}}</p>
+                    <p class="blog-date-user">by: {{post.author.user.id}}</p>
+                </div>
+                <p id="blog-text">{{post.content}}</p>
+            </div>
+        </div>
+        <a class="blog-read-more" href="{% url 'detail' post.id %}">read more</a>
+    </div>
+  {%endfor%}
+
+{% else %}
+  <h2 style="text-align:center;">No Posts Available</h2>
+{% endif %}
+{% endblock content %}
