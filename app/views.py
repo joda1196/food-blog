@@ -139,11 +139,11 @@ def myblogposts(request):
     return render(request, "blog/my_posts.html", context)
 
 
-def blog_detail(request, pk):
-    comments = Comment.objects.count()
-    blog_post = BlogPost.objects.get(id=pk)
-    context = {"comments": comments, "blog_post": blog_post}
-    return render(request, "blog/blogdetail.html", context)
+# def blog_detail(request, pk):
+#     comments = Comment.objects.count()
+#     blog_post = BlogPost.objects.get(id=pk)
+#     context = {"comments": comments, "blog_post": blog_post}
+#     return render(request, "blog/blogdetail.html", context)
 
 
 def view_members(request):
@@ -214,7 +214,7 @@ def deleteMember(request, pk):
     user = User.objects.get(id=member.user.id)
     if request.method == "POST":
         user.delete()
-        return redirect("login")
+        return redirect("view_members")
     context = {"member": member}
     return render(request, "members/delete.html", context)
 
@@ -228,3 +228,6 @@ def delete_post(request, pk):
         return redirect("homepage")
     context = {"post": post}
     return render(request, "blog/delete_post.html/", context)
+
+def make_moderator():
+    ...

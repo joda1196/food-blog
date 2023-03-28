@@ -1,8 +1,10 @@
 <!-- prettier-ignore -->
 {%extends 'base.html'%}
 {% block content%}
+<h1 style="display:flex;justify-content: center;">{{total_members}} Total users</h1>
 {% for member in members %}
 <div class="w3-card blog-post-container">
+        <h4><a href="">{{member.user}}</a></h4>
     <p>{{member.name}} {{member.last_name}}</p>
     <p><a href="{% url 'delete_member' member.user.id %}">Ban user</a></p>
 </div>

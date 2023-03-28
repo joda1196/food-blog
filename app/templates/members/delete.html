@@ -6,10 +6,12 @@
         <h2>
             Are you sure you want to remove "{{member}}"?
         </h2>
+        <h2>This will permanently delete '{{member}}', all of their posts and any comments they have created.</h2>
+        <h2>This action <strong>CANNOT</strong>be reversed.</h2>
         <form action=" {% url 'delete_member' member.id %}" method="POST">
                 {% csrf_token %}
-                <a href="{% url 'homepage' %}">Cancel</a>
-                <input type="submit" name="Confirm">
+                <a href="{% url 'view_members' %}">Cancel</a>
+                <input type="submit" class="warning" name="Confirm">
 
         </form>
     </div>

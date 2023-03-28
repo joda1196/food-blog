@@ -2,12 +2,13 @@
 {% block content %}
 <div class="all-forms">
     <h2>
-        Are you sure you want to remove '{{comment.content}}' by {{comment.author.user}}?
+        Are you sure you want to remove the following comment: '{{comment.content}}'
     </h2>
+    <h2>by {{comment.author.user}}?</h2>
     <form action=" {% url 'delete_comment' comment.id %}" method="POST">
             {% csrf_token %}
             <a href="{% url 'homepage' %}">Cancel</a>
-            <input type="submit" name="Confirm">
+            <input type="submit" class="warning" name="Confirm">
 
     </form>
 </div>

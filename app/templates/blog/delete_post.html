@@ -2,12 +2,13 @@
 {% block content %}
 <div class="all-forms">
     <h2>
-        Are you sure you want to remove '{{post.Title}}' by {{post.author.user}}?
+        Are you sure you want to remove the post titled '{{post.Title}}' by '{{post.author.user}}'?
     </h2>
+    <h2>This action CANNOT be reversed.</h2>
     <form action=" {% url 'delete_blog' post.id %}" method="POST">
             {% csrf_token %}
             <a href="{% url 'homepage' %}">Cancel</a>
-            <input type="submit" name="Confirm">
+            <input type="submit" class="warning" name="Confirm">
 
     </form>
 </div>
